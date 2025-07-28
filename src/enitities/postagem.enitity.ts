@@ -4,6 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeor
 @Entity(
     {name: "tb_postagens"}
 )
+
 export class Postagem{
 
     @PrimaryGeneratedColumn()
