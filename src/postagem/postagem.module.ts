@@ -9,6 +9,6 @@ import { TemaModule } from "../tema/tema.module";
     imports:[TypeOrmModule.forFeature([Postagem]), TemaModule],
     controllers: [postagemController],
     providers: [PostagemService],
-    exports: [],
+    exports: [TypeOrmModule],
 })
 export class PostagemModule{}    
