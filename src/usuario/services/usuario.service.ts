@@ -21,7 +21,11 @@ export class UsuarioService {
     }
 
     async findAll(): Promise<Usuario[]> {
-        return await this.usuarioRepository.find();
+        return await this.usuarioRepository.find({
+            relations:{
+                postagem:true
+            }
+        });
 
     }
 
@@ -30,6 +34,9 @@ export class UsuarioService {
         const usuario = await this.usuarioRepository.findOne({
             where: {
                 id
+            },
+            relations:{
+                postagem:true
             }
         });
 
@@ -55,6 +62,10 @@ export class UsuarioService {
     async update(usuario: Usuario): Promise<Usuario> {
 
         await this.findById(usuario.id);
+
+        //Passa id
+        if(!usuario.id)
+            throw new HttpException('Id não informado!', HttpStatus.BAD_REQUEST);
 
         const buscaUsuario = await this.findByUsuario(usuario.usuario);
 
