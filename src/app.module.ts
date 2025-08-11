@@ -28,7 +28,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     AuthModule,
     UsuarioModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
